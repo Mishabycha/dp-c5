@@ -13,3 +13,20 @@ def tweet_list(request):
         "blog/tweet_list.html",
         context=context,
     )
+
+def tweet(request):
+    tweet = Tweet()
+    context = {
+        'tweet': tweet,
+        'title': tweet.title,
+        "content": tweet.content,
+        "published_date": tweet.published_date,
+    }
+    return render(
+        request, 
+        'blog/tweet.html', 
+        context=context,
+    )
+
+def authors(request):
+    pass

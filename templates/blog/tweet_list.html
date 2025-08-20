@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tweets</title>
+    <title>Пости</title>
 </head>
 <body>
     <h2>
-        Tweets
+        Пости
     </h2>
     <ul>
         {% for tweet in tweet_list %}
 
             <li>
-                {{ tweet.title }} - {{ tweet.published_date }}
+                {{ tweet.title }}
             </li>
+
 
         {% endfor %}
     </ul>
