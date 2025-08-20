@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweets</title>
+</head>
+<body>
+    <h2>
+        Tweets
+    </h2>
+    <ul>
+        {% for tweet in tweet_list %}
+
+            <li>
+                {{ tweet.title }} - {{ tweet.published_date }}
+            </li>
+
+        {% endfor %}
+    </ul>
+</body>
+</html>
