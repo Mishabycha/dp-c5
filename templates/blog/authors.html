@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+</head>
+<body>
+     <h1>Автор: {{ author.name }}</h1>
+
+    {% if author.bio %}
+        <p><strong>Біографія:</strong> {{ author.bio }}</p>
+    {% else %}
+        <p>Біографія відсутня.</p>
+    {% endif %}
+
+    <h2>Пости цього автора</h2>
+    <ul>
+        {% for tweet in author.tweets.all %}
+            <li>
+                <strong>{{ tweet.title }}</strong><br>
+                {{ tweet.content|truncatewords:20 }}
+            </li>
+        {% empty %}
+            <li>У цього автора ще немає постів.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

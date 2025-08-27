@@ -3,8 +3,25 @@
 <head>
 </head>
 <body>
-    <main>
-        
-    </main>
+    <div class="tweet">
+        <h1>{{ tweet.title }}</h1>
+
+        <div class="meta">
+            {% if tweet.author %}
+                Автор: {{ tweet.author.name }} |
+            {% endif %}
+            Опубліковано: {{ tweet.published_date|date:"d.m.Y H:i" }}
+        </div>
+
+        <div class="content">
+            {{ tweet.content|linebreaks }}
+        </div>
+
+        <div class="footer">
+            Створено: {{ tweet.updated_at|date:"d.m.Y H:i" }}
+        </div>
+
+        <a href="{% url 'tweet_list' %}" class="back-link">← Назад до всіх постів</a>
+    </div>
 </body>
 </html>

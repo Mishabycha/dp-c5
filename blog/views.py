@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Tweet
+from blog.models import Tweet, Author
 
 # Create your views here.
 
@@ -14,13 +14,10 @@ def tweet_list(request):
         context=context,
     )
 
-def tweet(request):
-    tweet = Tweet()
+def tweet(request, pk):
+    tweet = Tweet.objects.get(id=pk)
     context = {
         'tweet': tweet,
-        'title': tweet.title,
-        "content": tweet.content,
-        "published_date": tweet.published_date,
     }
     return render(
         request, 
@@ -28,5 +25,13 @@ def tweet(request):
         context=context,
     )
 
-def authors(request):
-    pass
+def authors(request, pk):
+    author = Author.objects.get(id=pk)
+    context = {
+        'author': author,
+    }
+    return render(
+        request,
+        'blog/authors.html',
+        context=context
+    )

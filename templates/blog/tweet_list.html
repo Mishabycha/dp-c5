@@ -12,7 +12,7 @@
         {% for tweet in tweet_list %}
 
             <li>
-                {{ tweet.title }}
+                <a href="{% url 'tweet' tweet.pk %}">{{ tweet.title }} </a>
             </li>
 
 
